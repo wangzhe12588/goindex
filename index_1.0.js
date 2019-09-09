@@ -7,30 +7,8 @@ var authConfig = {
 };
 
 
-/** http basic auth **/
-// https://tool.oschina.net/encrypt?type=3
-// gd:1024
-const authorization = "Basic Z2Q6MTAyNA=="; //Basic 加密gd:1024值
-/** http basic auth **/
-
 var gd;
 
-addEventListener('fetch', event => {
-  console.log(event.request.headers.get("Authorization"));
-  if (event.request.headers.get("Authorization") !== authorization) {
-    return event.respondWith(new Response(
-      null, {
-        status: 401,
-        statusText: "'Authentication required.'",
-        body: "Unauthorized",
-        headers: {
-          "WWW-Authenticate": 'Basic realm="User Visible Realm"'
-        }
-      }
-    ))
-  }
-  event.respondWith(handleRequest(event.request))
-})
 
 /**
  * Fetch and log a request
