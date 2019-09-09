@@ -6,7 +6,7 @@ var authConfig = {
     "client_id": "202264815644.apps.googleusercontent.com",
     "client_secret": "X4Z3ca8xfWDb1Voo-F9a7ZxJ",
     "refresh_token": "", // 授权 token
-    "root": "root" // 根目录ID
+    "root": "" // 根目录ID（不填写即为根目录，或者填root）团队盘为：https://drive.google.com/drive/{这里为ID}
 };
 
 var gd;
