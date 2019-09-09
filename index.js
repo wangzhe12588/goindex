@@ -1,6 +1,6 @@
 var authConfig = {
     "siteName": "GoIndex", // 网站名称
-    "root_pass": "index",  // 根目录密码，优先于.password
+    "root_pass": "index",  // 根目录密码，优先于.password 亦可删除，用代码加密（用户名+密码）
     "version" : "1.0.2", // 程序版本
     "theme" : "material",
     "client_id": "202264815644.apps.googleusercontent.com",
