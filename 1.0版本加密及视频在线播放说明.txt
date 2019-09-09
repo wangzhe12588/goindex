@@ -1,0 +1,64 @@
+一：视频播放
+
+方法1：自定义外部播放器
+搜索
+html += `<li class="mdui-list-item file mdui-ripple" target="_blank"><a href="${p}">
+
+把<a href="${p}">换成href=https://down.boluo.link/php/mp4.php?url=https://xxxx.xxxx.workers.dev 或成自己的即可   
+
+
+方法2：内置播放器
+把代码放入<head></head>之间即可。
+
+	<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/layer/2.3/layer.js"></script>
+    <script>
+
+  $(function () {
+    $('.mdui-list').on('click','li',function(){
+      var href = $(this).children('a').attr('href');
+      console.log(href);
+      if(href.lastIndexOf(".mp4") > -1) {
+              layer.open({
+                type: 1,
+                title: decodeURI(href.substring(href.lastIndexOf("/") + 1, href.length)),
+                shadeClose: true,
+                shade: 0.8,
+                area: ['100%', '100%'],
+                content: '<center><video controls autoplay=true preload=auto style="width:80%;object-fit: cover;" src="' + href + '"></video></center>'
+              });
+              return false;
+            }
+    });
+     
+  });
+    </script>
+	
+二：网站加密
+参照图片：https://raw.githubusercontent.com/veip007/goindex/master/加密.png
+
+代码为：
+/** http basic auth **/
+// https://tool.oschina.net/encrypt?type=3
+// gd:1024
+const authorization = "Basic Z2Q6MTAyNA=="; //Basic 加密gd:1024值
+/** http basic auth **/
+
+var gd;
+
+addEventListener('fetch', event => {
+  console.log(event.request.headers.get("Authorization"));
+  if (event.request.headers.get("Authorization") !== authorization) {
+    return event.respondWith(new Response(
+      null, {
+        status: 401,
+        statusText: "'Authentication required.'",
+        body: "Unauthorized",
+        headers: {
+          "WWW-Authenticate": 'Basic realm="User Visible Realm"'
+        }
+      }
+    ))
+  }
+  event.respondWith(handleRequest(event.request))
+})	
