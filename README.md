@@ -45,7 +45,7 @@ Google Drive Directory Index
 前后端分离，确定基本架构  
 添加.password 支持  
 
-
+------
 1.自己的git fork一份 https://github.com/5Lin/goindex
 
 2.自己的git-goindex - 发布release 版本号自定，可以为1.0.6可以为其他比如 15
@@ -59,3 +59,8 @@ Google Drive Directory Index
 //cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/自己git名/goindex@第二步发布的release的版本号/themes/${authConfig.theme}/app.js
 
 *注意仓库public
+-----
+fork一份，cfworker中找出23行
+cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/xxxxx/goindex
+xxxxx改成自己Github的库
+比如cdn.jsdelivr.net/combine/gh/jquery/jquery@3.2/dist/jquery.min.js,gh/Reves/goindex
